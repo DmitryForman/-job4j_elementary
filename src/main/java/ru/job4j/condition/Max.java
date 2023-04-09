@@ -2,15 +2,15 @@ package ru.job4j.condition;
 
 public class Max {
     public static int max(int left, int right) {
-        return left > right ? left : right;
+        return Math.max(left, right);
     }
 
     public static int max(int first, int second, int threed) {
-        return first > second && first > threed ? first : second > threed ? second : threed;
+        return Math.max(first, max(second, threed));
     }
 
     public static int max(int first, int second, int threed, int four) {
-        return first > second && first > threed && first > four ? first : second > threed && second > four ? second : threed > four ? threed : four;
+        return max(first, max(second, (max(threed, four))));
     }
 
     public static void main(String[] args) {
